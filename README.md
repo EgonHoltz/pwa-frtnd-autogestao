@@ -1,0 +1,1 @@
+# pwa-frtnd-autogestao
