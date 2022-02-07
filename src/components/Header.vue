@@ -9,7 +9,7 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-5">
           <li><router-link to="/cars" class="nav-link px-2 text-white">Meus carros</router-link></li>
-          <li><a href="#" class="nav-link px-2 text-white">Perfil</a></li>
+          <li><router-link to="/profile" class="nav-link px-2 text-white">Perfil</router-link></li>
         </ul>
 
         <div class="text-end">
