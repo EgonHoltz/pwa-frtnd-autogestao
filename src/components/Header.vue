@@ -2,19 +2,19 @@
   <header class="p-3 bg-dark text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        <router-link to="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="../assets/checked-flags.png" class="app-icon rounded-circle img-thumbnail" alt="Application icon">
           <span class="fs-4">Auto Gestão</span>
-        </a>
+        </router-link>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-5">
-          <li><a href="#" class="nav-link px-2 text-white">Meus carros</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Perfil</a></li>
+          <li><router-link to="/cars" class="nav-link px-2 text-white">Meus carros</router-link></li>
+          <li><router-link to="/profile" class="nav-link px-2 text-white">Perfil</router-link></li>
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <router-link to="/login" class="btn btn-outline-light me-2">Login</router-link>
+          <router-link to="/signup" class="btn btn-warning">Sign-up</router-link>
         </div>
       </div>
     </div>
@@ -30,3 +30,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.app-icon{
+  max-width: 5em;
+  max-height: 5em;
+  margin-right: 1em;
+}
+</style>

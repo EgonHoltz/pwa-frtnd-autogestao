@@ -30,6 +30,7 @@ export default {
 html,
 body {
     height: 100%;
+    width: 100%;
     margin: 0;
 }
 #app {
@@ -39,7 +40,6 @@ body {
   text-align: center;
 }
 #body-content {
-	width: 100%;
   min-height: 100vh;
   height: 100%;
 	background-size: auto;
@@ -49,8 +49,6 @@ body {
 }
 #content-wrap{
   padding-bottom: 2rem;
-  padding-top: 2em;
-  width: 100%;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div id='content-home-wrap'>
-        <main class="px-3 text-center">
+        <main class="pt-5 px-3 text-center">
             <img src="../assets/central-car.png" class="rounded" alt="A car on the center">
             <h1>Bem vindo ao Auto Gestão</h1>
             <p class="lead">Onde Podes fazer a gestão de tua viatura</p>
