@@ -50,7 +50,6 @@ body {
 #content-wrap{
   padding-bottom: 2rem;
   padding-top: 2em;
-  width: 100%;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 </style>

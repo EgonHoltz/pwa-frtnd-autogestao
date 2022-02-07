@@ -9,6 +9,11 @@ const routes = [
         name: "home",
         component: () => import("../views/Home.vue")
     },
+    {
+        path: "/cars",
+        name: "cars",
+        component: () => import("../views/cars/CarManagement.vue")
+    },
         // Redirect to 404 page, if no match found
     {
         path: "*",
