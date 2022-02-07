@@ -6,7 +6,7 @@ import jQuery from "jquery"
 global.jQuery = jQuery
 global.jquery = jQuery // jquery lowercase was the solution for me
 global.$ = jQuery
-//let Bootstrap = require('bootstrap')
+import 'mdbvue/lib/css/mdb.min.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 //Vue.use(bootstrap)

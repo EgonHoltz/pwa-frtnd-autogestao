@@ -1,27 +1,25 @@
 <template>
-    <div class="template-reduced pt-3 text-center text-white">
-        <h1>Tabela de controlo de carros</h1>
+    <div class="template-reduced pt-3 text-center">
+        <h1>Tabela de controlo de usuários</h1>
         <div>
             <mdb-tbl>
             <mdb-tbl-head>
                 <tr class="text-white">
                     <th>id</th>
-                    <th>Carro</th>
-                    <th>Matrícula</th>
                     <th>Usuário</th>
-                    <th>Ultima alteração</th>
+                    <th>Ultimo login</th>
+                    <th>IP/Localização</th>
                     <th>Ações</th>
                 </tr>
             </mdb-tbl-head>
             <mdb-tbl-body>
                 <tr class="text-white">
                 <th scope="row">asd6549a4sd98a4984sa98</th>
-                <td>Seat Ibiza 2K6</td>
-                <td>25-14-GE</td>
                 <td>BarryAllen</td>
-                <td>Ultima alteração</td>
+                <td>10/01/2020 15:01</td>
+                <td>95.159.151.156/Lisboa,PT</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm m-0">Remover</button>
+                    <button type="button" class="btn btn-danger btn-sm m-0">Bloquear</button>
                 </td>
                 </tr>
             </mdb-tbl-body>

@@ -8,8 +8,17 @@
         </router-link>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-5">
-          <li><router-link to="/cars" class="nav-link px-2 text-white">Meus carros</router-link></li>
-          <li><router-link to="/profile" class="nav-link px-2 text-white">Perfil</router-link></li>
+          <li class="nav-item"><router-link to="/cars" class="nav-link px-2 text-white">Meus carros</router-link></li>
+          <li class="nav-item"><router-link to="/profile" class="nav-link px-2 text-white">Perfil</router-link></li>
+          <li class="nav-item ms-2">
+            <mdb-dropdown>
+              <mdb-dropdown-toggle color="dark" slot="toggle">Administração</mdb-dropdown-toggle>
+              <mdb-dropdown-menu color="elegant">
+                <mdb-dropdown-item><router-link to="/admin/cars" class="nav-link px-2 text-brack">Carros</router-link></mdb-dropdown-item>
+                <mdb-dropdown-item><router-link to="/admin/users" class="nav-link px-2 text-black">Usuários</router-link></mdb-dropdown-item>
+              </mdb-dropdown-menu>
+            </mdb-dropdown>       
+          </li>
         </ul>
 
         <div class="text-end">
@@ -22,11 +31,17 @@
 </template>
 
 <script>
-
+import { mdbDropdown, mdbDropdownItem, mdbDropdownMenu, mdbDropdownToggle } from 'mdbvue';
 export default {
   name: "Header",
   props: {
-    msg: String
+    msg: String,
+  },
+  components: {
+      mdbDropdown,
+      mdbDropdownItem,
+      mdbDropdownMenu,
+      mdbDropdownToggle
   }
 }
 </script>

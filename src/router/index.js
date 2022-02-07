@@ -29,6 +29,16 @@ const routes = [
         name: "signup",
         component: () => import("../views/SignUp.vue")
     },
+    {
+        path: "/admin/cars",
+        name: "admcars",
+        component: () => import("../views/admin/CarsControls.vue")
+    },
+    {
+        path: "/admin/users",
+        name: "admusers",
+        component: () => import("../views/admin/UsersControls.vue")
+    },
         // Redirect to 404 page, if no match found
     {
         path: "*",

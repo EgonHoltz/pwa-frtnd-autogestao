@@ -51,4 +51,8 @@ body {
   padding-bottom: 2rem;
   min-height: 100vh;
 }
+.template-reduced{
+    width: 70%;
+    margin: 0 auto;
+}
 </style>
