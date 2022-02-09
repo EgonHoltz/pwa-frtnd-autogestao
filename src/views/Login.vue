@@ -1,23 +1,56 @@
 <template>
     <main class="form-signin">
-        <form action="">
+        <form @submit.prevent="login">
             
             <h1 class="h3 mb-3 fw-normal text-center">Por favor, autentique-se</h1>
 
             <div class="form mb-2">
                 <label for="floatingInput">Usuário</label>
-                <input type="email" class="form-control" id="floatingInput" placeholder="User">
+                <input v-model="username" type="text" class="form-control" id="floatingInput" placeholder="User">
             </div>
             <div class="form mb-3">
                 <label for="floatingPassword">Palavra-passe</label>
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input v-model="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+            <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Entrar</button>
+            <router-link :to="{name: 'register'}" tag="button" class="w-100 btn btn-lg btn-warning">Registrar-se</router-link>
 
         </form>
     </main>
 </template>
+
+<script>
+import { MODULE_BASE, AUTH_LOGIN } from "@/store/auth/auth.constants";
+import router from "@/router";
+import { mapGetters } from "vuex";
+
+export default {
+  name: "Login",
+  data: function() {
+    return {
+      username: "",
+      password: ""
+    };
+  },
+  computed: {
+    ...mapGetters("auth", ["getMessage"])
+  },
+  methods: {
+    login() {
+      this.$store
+        .dispatch(`${MODULE_BASE}/${AUTH_LOGIN}`, this.$data)
+        .then(() => {
+          this.$alert(this.getMessage, "Login", "success");
+          router.push({ name: "home" });
+        })
+        .catch(err => {
+          this.$alert(`${err.message}`, "Erro", "error");
+        });
+    }
+  }  
+}
+</script>
 
 <style>
 .bd-placeholder-img {
