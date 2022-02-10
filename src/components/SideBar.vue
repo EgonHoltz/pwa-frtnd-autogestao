@@ -10,13 +10,13 @@
             <li class="nav-item">
                 <a href="#" class="btn btn-outline-danger text-center mb-3" aria-current="page">
                 <p class="fs-5">Seat - Ibiza K6 Cupra - 2001</p>
-                <p class="fs-6">28-24-RQ</p>
+                <p class="fs-6">25-14-GE</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="btn btn-outline-warning text-center" aria-current="page">
                 <p class="fs-5">Seat - Ibiza K6 Cupra - 2001</p>
-                <p class="fs-6">28-24-RQ</p>
+                <p class="fs-6">25-14-GE</p>
                 </a>
             </li>
             
