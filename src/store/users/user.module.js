@@ -1,7 +1,9 @@
 import userService from "@/api/user.service";
 import {
+  //mutation
   SET_USERS,
   SET_MESSAGE,
+  //actions
   FETCH_USERS,
   ADD_USER,
   EDIT_USER,

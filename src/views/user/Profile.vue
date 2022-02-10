@@ -94,11 +94,13 @@ export default {
             return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
         },
         update(){
+            let birthDateTemp = moment(this.user.birthDate,"DD/MM/YYYY").format();
+            this.user.birthDate = birthDateTemp;
             this.$refs['modal-editUser'].hide();
             this.$store.dispatch(`user/${EDIT_USER}`, this.user).then(
                 () => {
                     this.$alert(this.getMessage, "Usuário atualizado!", "success");
-                    router.push({ name: "profile" });
+                    router.push({ name: "home" });
                 },
                 err => {
                     this.$alert(`${err.message}`, "Erro", "error");

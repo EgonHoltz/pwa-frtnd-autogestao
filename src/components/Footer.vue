@@ -13,6 +13,11 @@
 <script>
 import {computed} from 'vue'
 export default {
+    data: () => {
+        return {
+            year : null
+        };
+    },
     setup(){
         const year = computed(() => new Date().getFullYear())
         return {year} 

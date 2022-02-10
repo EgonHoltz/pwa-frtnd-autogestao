@@ -14,7 +14,7 @@
             </div>
 
             <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Entrar</button>
-            <router-link :to="{name: 'register'}" tag="button" class="w-100 btn btn-lg btn-warning">Registrar-se</router-link>
+            <router-link :to="{name: 'signup'}" tag="button" class="w-100 btn btn-lg btn-warning">Registrar-se</router-link>
 
         </form>
     </main>

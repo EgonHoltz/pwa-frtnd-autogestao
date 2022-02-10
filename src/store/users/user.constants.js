@@ -17,12 +17,10 @@ export const FETCH_USERS = "fetchUsers";
 export const ADD_USER = "addUser";
 export const EDIT_USER = "editUser";
 export const REMOVE_USER = "removeUser";
+export const SET_USERS = "setUser"
 
 // COMMON
 export const SET_MESSAGE = "setMessage";
-
-
-
 export const LOGIN = "login";
 export const LOGOUT = "logout";
 export const REGISTER = "register";
