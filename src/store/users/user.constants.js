@@ -18,6 +18,9 @@ export const ADD_USER = "addUser";
 export const EDIT_USER = "editUser";
 export const REMOVE_USER = "removeUser";
 export const SET_USERS = "setUser"
+export const ACTIVATE_USER = "activateUser"
+export const DEACTIVATE_USER = "deactivateUser"
+
 
 // COMMON
 export const SET_MESSAGE = "setMessage";

@@ -61,6 +61,36 @@ export const userService = {
     } else {
       throw Error(handleResponses(response.status));
     }
+  },
+
+  async activateUser(token, id) {
+    const response = await fetch(`${API_URL}/users/admin/activate/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw Error(handleResponses(response.status));
+    }
+  },
+
+  async deactivateUser(token, id) {
+    const response = await fetch(`${API_URL}/users/admin/deactivate/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw Error(handleResponses(response.status));
+    }
   }
 
 };
