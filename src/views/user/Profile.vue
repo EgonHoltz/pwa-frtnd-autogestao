@@ -25,7 +25,7 @@
             </form>
                 <div class="row g-2">
                     <div class="col-6">
-                        <button href="" v-b-modal.modal-editUser class="btn btn-success">Actualizar dados</button>
+                        <button v-b-modal.modal-editUser class="btn btn-success">Actualizar dados</button>
                             <b-modal ref="modal-editUser" id="modal-editUser" title="Actualizar dados">
                                 <form @submit.prevent="update">
                                     <div class="col-sm-15 mb-4 row">
@@ -109,7 +109,7 @@ export default {
         },
         deleteUser(){
             this.$confirm(
-                "Todos os seus dados e carros serão apagados",
+                "Todos os seus dados e viaturas serão apagados",
                 "Deseja mesmo remover seu utilizador?",
                 "warning",
                 { confirmButtonText: "OK", cancelButtonText: "Cancelar" }

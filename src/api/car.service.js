@@ -1,4 +1,5 @@
 import API_URL from './config.js'
+import axios from "axios";
 
 export const carService = {
   async getCars(token) {
@@ -94,6 +95,21 @@ export const carService = {
       throw Error(handleResponses(response.status));
     }
   },
+  async importCar(token, id, formData) {
+    axios({
+      url: `${API_URL}/user/${id}/import`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': token
+      },
+      body: formData
+    }).then((response) => {
+      return response.json();
+    }).catch((response) =>{
+      throw Error(handleResponses(response.status));
+    });
+  }
 
 };
 

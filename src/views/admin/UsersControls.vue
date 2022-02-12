@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         fetchUsers() {
-        this.$store.dispatch(`user/${FETCH_USERS}`).then( 
+            this.$store.dispatch(`user/${FETCH_USERS}`).then( 
             () => {
                 this.users = this.getUsers;
             }, err => {
