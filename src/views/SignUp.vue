@@ -94,17 +94,14 @@ export default {
         add() {
             if (document.querySelector("#txtPassword").value !==
             document.querySelector("#txtConfirmPassword").value) {
-                console.log("pass not agree")
                 this.$alert(
                 "Campos password não coincidem",
                 "Erro de validação do formulário",
                 "error"
                 );
             } else {
-                console.log("call user add")
                 this.$store.dispatch(`user/${ADD_USER}`, this.$data).then(
                     () => {
-                        console.log("user added")
                         this.$alert(
                             this.getMessage,
                         "Utilizador adicionado!",
@@ -112,7 +109,6 @@ export default {
                         router.push({name: 'home'});
                     },
                     err => {
-                        console.log("user not added")
                         this.$alert(`${err.message}`, "Erro", "error");
                     }
                 );

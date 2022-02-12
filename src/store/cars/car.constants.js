@@ -1,5 +1,6 @@
 // Actions
 export const FETCH_CARS = "fetchCars";
+export const FETCH_ADMCARS = "fetchAllCars";
 export const ADD_CAR = "addCar";
 export const EDIT_CAR = "editCar";
 export const REMOVE_CAR = "removeCar";

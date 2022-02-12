@@ -17,6 +17,21 @@ export const carService = {
     }
   },
 
+  async getAllCars(token) {
+    let response = await fetch(`${API_URL}/cars/admin`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw Error(handleResponses(response.status));
+    }
+  },
+
   async addCar(token, payload) {
     const response = await fetch(`${API_URL}/cars`, {
       method: "POST",

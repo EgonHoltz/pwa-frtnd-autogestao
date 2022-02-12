@@ -3,6 +3,7 @@ import moment from 'moment';
 import { 
   // Actions
   FETCH_CARS,
+  FETCH_ADMCARS,
   ADD_CAR,
   EDIT_CAR,
   REMOVE_CAR,
@@ -25,7 +26,6 @@ const getters = {
   getCarsById: state => id => state.cars.find(car => car._id === id),
   getMessage: state => state.message,
   getCar: state => {
-    console.log(state.car);
     let kmByLiters = 0;
     let kmsOfOil = 0;
     let kmsOfTires = 0;
@@ -54,6 +54,20 @@ const actions = {
   [FETCH_CARS]: ({ commit, rootState }) => {
     return new Promise((resolve, reject) => {
       carService.getCars(rootState.auth.token)
+        .then(
+          res => {
+            commit(SET_CARS, res.body);
+            resolve(res)
+          },
+          err => {
+            commit(SET_MESSAGE, err.message)
+            reject(err)
+          });
+    })
+  },
+  [FETCH_ADMCARS]: ({ commit, rootState }) => {
+    return new Promise((resolve, reject) => {
+      carService.getAllCars(rootState.auth.token)
         .then(
           res => {
             commit(SET_CARS, res.body);
@@ -118,7 +132,6 @@ const actions = {
   },
   [UPDATE_REFUEL_CAR]: ({ commit, rootState }, payload) => {
     return new Promise((resolve, reject) => {
-      console.log(payload);
       carService.updateRefuel(rootState.auth.token, payload._id, payload.refuel)
         .then(
           res => {
