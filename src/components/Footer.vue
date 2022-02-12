@@ -20,23 +20,26 @@ export default {
     },
     setup(){
         const year = computed(() => new Date().getFullYear())
-        return {year} 
+        return {year}
     }
 }
 </script>
 
 <style>
 #github-img{
-  margin-right: 0.1em;
+    background-image: url(../assets/github.png) !important;
+    margin-right: 1em;
 }
 #linkedin-img{
-  margin-right: 0.1em;
+    background-image: url(../assets/linkedin.jpg) !important;
+    margin-right: 1em;
+    background-repeat: no-repeat;
 }
 footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 2rem; 
+	height: 4rem; 
 	margin: 0 auto;
 	color: white;
 	z-index: 999;

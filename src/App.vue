@@ -48,7 +48,7 @@ body {
   color: white;
 }
 #content-wrap{
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   min-height: 100vh;
 }
 .template-reduced{
