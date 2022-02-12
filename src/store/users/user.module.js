@@ -7,7 +7,9 @@ import {
   FETCH_USERS,
   ADD_USER,
   EDIT_USER,
-  REMOVE_USER
+  REMOVE_USER,
+  ACTIVATE_USER,
+  DEACTIVATE_USER
 } from "./user.constants";
 
 const state = {
@@ -68,6 +70,28 @@ const actions = {
   [REMOVE_USER]: ({ commit, rootState }, id) => {
     return new Promise((resolve, reject) => {
       userService.removeUser(rootState.auth.token, id).then(
+        res => {
+          commit(SET_MESSAGE, `O utilizador foi removido com sucesso!`);
+          resolve(res);
+        },
+        err => reject(err)
+      );
+    });
+  },
+  [ACTIVATE_USER]: ({ commit, rootState }, id) => {
+    return new Promise((resolve, reject) => {
+      userService.activateUser(rootState.auth.token, id).then(
+        res => {
+          commit(SET_MESSAGE, `O utilizador foi removido com sucesso!`);
+          resolve(res);
+        },
+        err => reject(err)
+      );
+    });
+  },
+  [DEACTIVATE_USER]: ({ commit, rootState }, id) => {
+    return new Promise((resolve, reject) => {
+      userService.deactivateUser(rootState.auth.token, id).then(
         res => {
           commit(SET_MESSAGE, `O utilizador foi removido com sucesso!`);
           resolve(res);

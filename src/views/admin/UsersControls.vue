@@ -24,7 +24,8 @@
                     <td>{{user.access.client}}</td>
                     <td>
                         <button type="button" @click="viewUser(user._id)" class="btn btn-primary btn-sm m-0 me-2">Ver</button>
-                        <button type="button" class="btn btn-danger btn-sm m-0">Bloquear</button>
+                        <button type="button" v-if="user.active==true" @click="deactivateUser(user._id)" class="btn btn-danger btn-sm m-0">Bloquear</button>
+                        <button type="button" v-if="user.active==false" @click="activateUser(user._id)" class="btn btn-success btn-sm m-0">Activar</button>
                     </td>
                 </tr>
             </mdb-tbl-body>
@@ -34,7 +35,7 @@
 </template>
 
 <script>
-import { FETCH_USERS } from "@/store/users/user.constants";
+import { FETCH_USERS, ACTIVATE_USER, DEACTIVATE_USER } from "@/store/users/user.constants";
 import { mapGetters } from "vuex";
 import { mdbTbl, mdbTblHead, mdbTblBody } from 'mdbvue';
 export default {
@@ -55,7 +56,7 @@ export default {
     },
     methods: {
         fetchUsers() {
-        this.$store.dispatch(`user/${FETCH_USERS}`).then( 
+            this.$store.dispatch(`user/${FETCH_USERS}`).then( 
             () => {
                 this.users = this.getUsers;
             }, err => {
@@ -90,6 +91,26 @@ export default {
         {
             const newDate = new Date(Date.parse(d))
             return newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds()
+        },
+        deactivateUser(userId){
+            this.$store.dispatch(`user/${DEACTIVATE_USER}`, userId).then(
+                () => {
+                    this.$alert(this.getMessage, "Usuário desativado!", "success");
+                },
+                err => {
+                    this.$alert(`${err.message}`, "Erro", "error");
+                }
+            );
+        },
+        activateUser(userId){
+            this.$store.dispatch(`user/${ACTIVATE_USER}`, userId).then(
+                () => {
+                    this.$alert(this.getMessage, "Usuário activado!", "success");
+                },
+                err => {
+                    this.$alert(`${err.message}`, "Erro", "error");
+                }
+            );
         },
     },
     created() {

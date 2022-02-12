@@ -1,8 +1,24 @@
 import API_URL from './config.js'
+import axios from "axios";
 
 export const carService = {
   async getCars(token) {
     let response = await fetch(`${API_URL}/cars`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      }
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw Error(handleResponses(response.status));
+    }
+  },
+
+  async getAllCars(token) {
+    let response = await fetch(`${API_URL}/cars/admin`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -94,6 +110,21 @@ export const carService = {
       throw Error(handleResponses(response.status));
     }
   },
+  async importCar(token, id, formData) {
+    axios({
+      url: `${API_URL}/user/${id}/import`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': token
+      },
+      body: formData
+    }).then((response) => {
+      return response.json();
+    }).catch((response) =>{
+      throw Error(handleResponses(response.status));
+    });
+  }
 
 };
 
