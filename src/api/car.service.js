@@ -110,20 +110,16 @@ export const carService = {
       throw Error(handleResponses(response.status));
     }
   },
-  async importCar(token, id, formData) {
-    axios({
-      url: `${API_URL}/user/${id}/import`,
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': token
-      },
-      body: formData
-    }).then((response) => {
-      return response.json();
-    }).catch((response) =>{
+  async importCar(token, formData) {
+    const headers = { 'Content-Type': 'multipart/form-data', 'Authorization': token };
+    const url = `${API_URL}/cars/import`;
+    const response = await axios.post(url,formData, {headers});
+    console.log(response);
+    if(response.data.type = "success"){
+      return await response;
+    }else{
       throw Error(handleResponses(response.status));
-    });
+    }
   }
 
 };
@@ -133,6 +129,9 @@ function handleResponses(code) {
   switch (code) {
     case 401:
       message = "Não está autorizado a executar esta ação!"
+      break;
+    case 400:
+      message = "Não foi informado um ficheiro ou o mesmo está no formato errado"
       break;
     default:
       message = "Mensagem desconhecida"

@@ -311,7 +311,9 @@ export default {
         },
         exportCar(){
             let carExported = this.car;
-            carExported.pop("_id");
+            delete carExported._id
+            delete carExported.__v
+            if (carExported.user) delete carExported.user
             const data = JSON.stringify(carExported)
             const blob = new Blob([data], {type: 'text/plain'})
             const e = document.createEvent('MouseEvents'),

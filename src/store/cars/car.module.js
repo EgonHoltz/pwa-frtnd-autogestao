@@ -143,11 +143,12 @@ const actions = {
           });
     });
   },
-  [IMPORT_CAR]: ({ commit, rootState }, objSend) => {
+  [IMPORT_CAR]: ({ commit, rootState }, formData) => {
     return new Promise((resolve, reject) => {
-      carService.importCar(rootState.auth.token, objSend.userId, objSend.file)
+      carService.importCar(rootState.auth.token, formData)
         .then(
           res => {
+            console.log("response on module")
             commit(SET_MESSAGE, `Viatura exportada com sucesso!`);
             resolve(res)
           }, err => {

@@ -18,7 +18,7 @@
         <hr>
         <button v-b-modal.modal-importCar class="btn btn-primary mb-2">Importar viatura</button>
         <b-modal ref="modal-importCar" id="modal-importCar" title="Adicione uma viatura nova">
-            <form @submit.prevent="importCar">
+            <form @submit.prevent="importCar" enctype="multipart/form-data">>
                 <div class="col-sm-15 mb-4 row">
                     <label for="carImportInput" class="form-label">Ficheiro a importar:</label>
                     <div class="col-sm-6">
@@ -83,6 +83,7 @@
 <script>
 import { SET_CAR, ADD_CAR, FETCH_CARS, IMPORT_CAR } from "@/store/cars/car.constants";
 import { mapGetters } from "vuex";
+import router from "@/router";
 export default {
     data: function() {
         return {
@@ -99,7 +100,7 @@ export default {
                     actualRefuelKm: 0
                 }
             },
-            file: ""
+            file: null
         }
     },
     computed: {
@@ -141,18 +142,23 @@ export default {
             this.file = this.$refs.file.files[0];
         },
         importCar(){
-            let objSend = []
+            if (this.file == null || this.file == undefined) {
+                this.$refs['modal-importCar'].hide();
+                this.$alert("Não há ficheiro para upload", "Erro!", "error");
+                return;
+            }
             let formData = new FormData();
             formData.append('file', this.file);
-            objSend['file'] = formData;
-            objSend['userId'] = this.getProfile._id
-            this.$store.dispatch(`car/${IMPORT_CAR}`, objSend).then(
+            this.$store.dispatch(`car/${IMPORT_CAR}`, formData).then(
                 () => {
                     this.$alert(this.getMessage, "Viatura adicionada!", "success");
                     this.fetchCars();
+                    this.$refs['modal-importCar'].hide();
+                    router.push({ name: "home" });
                 },
                 err => {
                     this.$alert(`${err.message}`, "Erro", "error");
+                    this.$refs['modal-importCar'].hide();
                 }
             );
         }
