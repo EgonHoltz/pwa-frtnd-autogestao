@@ -18,7 +18,7 @@
         <hr>
         <button v-b-modal.modal-importCar class="btn btn-primary mb-2">Importar viatura</button>
         <b-modal ref="modal-importCar" id="modal-importCar" title="Adicione uma viatura nova">
-            <form @submit.prevent="importCar" enctype="multipart/form-data">>
+            <form @submit.prevent="importCar" enctype="multipart/form-data">
                 <div class="col-sm-15 mb-4 row">
                     <label for="carImportInput" class="form-label">Ficheiro a importar:</label>
                     <div class="col-sm-6">

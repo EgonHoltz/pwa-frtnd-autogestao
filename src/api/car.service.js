@@ -115,7 +115,7 @@ export const carService = {
     const url = `${API_URL}/cars/import`;
     const response = await axios.post(url,formData, {headers});
     console.log(response);
-    if(response.data.type = "success"){
+    if(response.data.type == "success"){
       return await response;
     }else{
       throw Error(handleResponses(response.status));
